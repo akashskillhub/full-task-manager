@@ -58,6 +58,7 @@ exports.singin = async (req, res) => {
 exports.registerEmployee = async (req, res) => {
     try {
         // Only Admin can register employee
+        // express-validator
         const { name, email, mobile } = req.body
         if (!name || !email || !mobile) {
             return res.status(400).json({ message: "all fields required" })
