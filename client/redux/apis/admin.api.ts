@@ -41,7 +41,7 @@ export const adminApi = createApi({
                 invalidatesTags: ["employee"]
             }),
             deleteEmployee: builder.mutation<COMMON_RESPONSE, DELETE_EMPLOYEE_REQUEST>({
-                query: _id => {
+                query: ({ _id }) => {
                     return {
                         url: "/delete-employee/" + _id,
                         method: "DELETE",
@@ -60,7 +60,7 @@ export const adminApi = createApi({
                 invalidatesTags: ["employee"]
             }),
             removeEmployee: builder.mutation<COMMON_RESPONSE, REMOVE_EMPLOYEE_REQUEST>({
-                query: _id => {
+                query: ({ _id }) => {
                     return {
                         url: "/remove-employee/" + _id,
                         method: "DELETE",
@@ -83,7 +83,7 @@ export const adminApi = createApi({
             todoRead: builder.query<TODO_READ_RESPONSE, void>({
                 query: todoData => {
                     return {
-                        url: "/todo-create",
+                        url: "/todo",
                         method: "GET",
                     }
                 },

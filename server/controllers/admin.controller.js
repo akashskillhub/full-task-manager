@@ -5,7 +5,6 @@ const User = require("../models/User")
 exports.getAllEmployees = async (req, res) => {
     try {
         const result = await User.find({ role: "employee" }).select("name email mobile role active isDelete")
-        // const result = await User.find({ role: "employee" }).select("-password")
         res.status(200).json({ message: "employee fetch success", result })
     } catch (error) {
         console.log(error)
@@ -109,7 +108,8 @@ exports.createTask = async (req, res) => {
 
 exports.readTask = async (req, res) => {
     try {
-        const result = await Task.find()
+        //                                  👇Left Join
+        const result = await Task.find().populate("employee", "_id name mobile email")
         res.status(200).json({ message: "task read success", result })
     } catch (error) {
         console.log(error)

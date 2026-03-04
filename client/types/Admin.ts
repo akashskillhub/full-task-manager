@@ -2,7 +2,7 @@ export type TODO = {
     task: string
     desc: string
     priority: string
-    employee: string
+    employee: { _id: string, name: string, email: string, mobile: string }
     due: Date
     _id: string
     completeDate: Date
@@ -36,7 +36,7 @@ export type UPDATE_EMPLOYEE_RESPONSE = {
 
 export type TOGGLE_EMPLOYEE_REQUEST = {
     _id: string
-    status: string
+    status: boolean
 }
 export type TOGGLE_EMPLOYEE_RESPONSE = {
     message: string
@@ -44,7 +44,7 @@ export type TOGGLE_EMPLOYEE_RESPONSE = {
 
 export type DELETE_EMPLOYEE_REQUEST = {
     _id: string
-    isDelete: boolean
+    // isDelete: boolean
 }
 export type DELETE_EMPLOYEE_RESPONSE = {
     message: string
