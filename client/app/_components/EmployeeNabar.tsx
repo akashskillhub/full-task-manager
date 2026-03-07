@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import { toast } from 'react-toastify'
 
 const EmployeeNabar = () => {
-    const { admin } = useAppSelector(state => state.auth)
+    const { employee } = useAppSelector(state => state.auth)
     const [logout] = useSignoutMutation()
     const router = useRouter()
     const handleLogout = async () => {
@@ -33,8 +33,8 @@ const EmployeeNabar = () => {
                     </div>
                 </div>
                 {
-                    admin && <div className="dropdown" >
-                        <button className='btn btn-light' data-bs-toggle="dropdown">welcome {admin.name}</button>
+                    employee && <div className="dropdown" >
+                        <button className='btn btn-light' data-bs-toggle="dropdown">welcome {employee.name}</button>
                         <div className="dropdown-menu">
                             <li className=""> <Link className='dropdown-item' href="/employee">Dashboard</Link> </li>
                             <li className=""> <Link className='dropdown-item' href="/employee/profile">Profile</Link> </li>

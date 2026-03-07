@@ -1,14 +1,13 @@
 "use client"
-import { useSignoutMutation } from '@/redux/apis/auth.api'
+import { useSignoutAdminMutation } from '@/redux/apis/auth.api'
 import { useAppSelector } from '@/redux/store'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import React from 'react'
 import { toast } from 'react-toastify'
 
 const AdminNavbar = () => {
     const { admin } = useAppSelector(state => state.auth)
-    const [logout] = useSignoutMutation()
+    const [logout] = useSignoutAdminMutation()
     const router = useRouter()
     const handleLogout = async () => {
         try {
